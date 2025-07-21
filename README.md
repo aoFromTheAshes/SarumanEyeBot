@@ -25,3 +25,36 @@ This is a **Telegram bot for personal task time tracking**, built with:
 ```bash
 git clone https://github.com/yourusername/sarumaneyebot.git
 cd sarumaneyebot
+
+2. **Install uv if not installed**
+pip install uv
+
+3. **Install dependencies**
+uv pip install
+
+4. **Set up environment variables**
+
+Create a .env file in the project root:
+
+TOKEN=your_telegram_bot_token
+DB_NAME=your_database_name
+DB_USER=your_database_user
+DB_PASS=your_database_password
+DB_PORT=5432
+DB_HOST=localhost
+
+5. **Create database tables**
+
+Ensure PostgreSQL is running, then:
+
+uv run python -c "from db.db import create_tables; create_tables()"
+
+▶️ Run the bot
+uv run python main.py
+
+💡 Notes
+Uses pyproject.toml for dependency management (no requirements.txt needed).
+
+Uses uv for fast and isolated virtual environment management.
+
+Adjust timezone logic if deploying to production with different user timezones.
